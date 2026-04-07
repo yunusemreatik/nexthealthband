@@ -1,3 +1,4 @@
+// Triggering Vercel deployment after the commit revert.
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
