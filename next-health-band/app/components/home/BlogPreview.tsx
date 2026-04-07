@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { ArrowRight, Calendar } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
 import { supabase } from "@/lib/supabaseClient";
@@ -25,8 +25,11 @@ async function getPosts(): Promise<BlogPost[]> {
 }
 
 export default async function BlogPreview() {
-  const posts = await getPosts();
-  const t = await getTranslations("blog");
+  const [posts, t, locale] = await Promise.all([
+    getPosts(),
+    getTranslations("blog"),
+    getLocale(),
+  ]);
 
   if (posts.length === 0) return null;
 
@@ -39,7 +42,7 @@ export default async function BlogPreview() {
             <p className="text-muted mt-2">{t("subtitle")}</p>
           </div>
           <Link
-            href="/tr/blog"
+            href={`/${locale}/blog`}
             className="hidden md:inline-flex items-center gap-2 text-accent font-semibold hover:underline"
           >
             {t("allPosts")} <ArrowRight className="w-4 h-4" />
@@ -49,7 +52,7 @@ export default async function BlogPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <FadeIn key={post.id} delay={i * 0.1}>
-              <Link href={`/tr/blog/${post.slug}`} className="group block">
+              <Link href={`/${locale}/blog/${post.slug}`} className="group block">
                 <div className="bg-surface border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:border-accent transition-all">
                   <div className="bg-accent-soft h-48 flex items-center justify-center">
                     {post.cover_image ? (

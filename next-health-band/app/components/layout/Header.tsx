@@ -67,7 +67,7 @@ export default function Header() {
           {/* Right actions */}
           <div className="flex items-center gap-3">
             <Link
-              href={`/${locale}`}
+              href={`/${otherLocale}`}
               className="hidden md:inline-flex text-xs font-semibold text-muted hover:text-accent border border-border rounded-full px-3 py-1 transition-colors"
             >
               {otherLocale.toUpperCase()}

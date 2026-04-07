@@ -13,9 +13,8 @@ export async function PUT(request: NextRequest) {
   const body = await request.json();
   const { error } = await supabaseAdmin
     .from("hero_sections")
-    .update({ ...body, updated_at: new Date().toISOString() })
-    .eq("id", 1);
+    .upsert({ id: 1, ...body, updated_at: new Date().toISOString() }, { onConflict: "id" });
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  await logActivity(email!, "UPDATE", "hero_sections", 1);
+  await logActivity(email!, "UPSERT", "hero_sections", 1);
   return NextResponse.json({ ok: true });
 }
