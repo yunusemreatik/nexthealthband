@@ -28,18 +28,26 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const locale = useLocale();
   const [email, setEmail] = useState<string | null>(null);
 
+  const isLoginPage = pathname.endsWith("/admin/login");
+
   useEffect(() => {
+    if (isLoginPage) return; // Login sayfasında auth kontrolü yapma
     fetch("/api/auth")
       .then((r) => r.json())
       .then((d) => {
         if (!d.authenticated) router.push(`/${locale}/admin/login`);
         else setEmail(d.email);
       });
-  }, [router, locale]);
+  }, [router, locale, isLoginPage]);
 
   async function logout() {
     await fetch("/api/auth", { method: "DELETE" });
     router.push(`/${locale}/admin/login`);
+  }
+
+  // Login sayfasını layout olmadan döndür
+  if (isLoginPage) {
+    return <>{children}</>;
   }
 
   if (!email) {

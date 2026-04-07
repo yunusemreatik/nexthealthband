@@ -3,35 +3,25 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { Activity, Heart, Moon, ArrowRight } from "lucide-react";
+import { Activity, Heart, Moon, ArrowRight, Footprints, Flame, Zap } from "lucide-react";
 
 export default function Hero() {
   const t = useTranslations("hero");
   const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-bg">
-      {/* Background orbs */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl bg-accent"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-1/6 w-72 h-72 rounded-full opacity-10 blur-3xl bg-peach"
-        animate={{ scale: [1, 1.05, 1], opacity: [0.08, 0.15, 0.08] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
+    <section className="relative min-h-screen overflow-hidden bg-bg">
+      {/* Full-bleed layout: text left, image right */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-screen flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 w-full py-24 lg:py-0">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
-          <div>
+          {/* ── LEFT TEXT COLUMN ── */}
+          <div className="flex flex-col justify-center lg:pr-16 z-10 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-accent-soft text-accent rounded-full px-4 py-1.5 text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 bg-accent-soft text-accent rounded-full px-4 py-1.5 text-sm font-semibold mb-7 w-fit"
             >
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               {t("badge")}
@@ -41,7 +31,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight"
             >
               {t("titleMain")}
               <br />
@@ -52,7 +42,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-muted text-lg mt-6 max-w-lg leading-relaxed"
+              className="text-muted text-lg mt-6 max-w-md leading-relaxed"
             >
               {t("subtitle")}
             </motion.p>
@@ -61,113 +51,136 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mt-8"
+              className="mt-8"
             >
               <Link
                 href={`/${locale}/iletisim`}
-                className="inline-flex items-center gap-2 bg-accent text-white rounded-full px-7 py-3.5 font-bold text-base hover:bg-accent-green transition-colors shadow-lg shadow-accent/20"
+                className="inline-flex items-center gap-2.5 bg-accent text-white rounded-full px-8 py-4 font-bold text-base hover:bg-accent-green transition-colors shadow-lg shadow-accent/25"
               >
                 {t("ctaPrimary")} <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href={`/${locale}/urun`}
-                className="inline-flex items-center gap-2 border border-border rounded-full px-7 py-3.5 font-semibold text-base hover:bg-accent-soft transition-colors"
-              >
-                {t("ctaSecondary")}
-              </Link>
             </motion.div>
 
-            {/* Feature badges */}
+            {/* Feature list — Vitrus style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-3 mt-10"
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mt-12 space-y-4"
             >
               {[
-                { icon: Activity, label: t("badge1"), color: "text-accent" },
-                { icon: Heart, label: t("badge2"), color: "text-rose-500" },
-                { icon: Moon, label: t("badge3"), color: "text-indigo-500" },
-              ].map(({ icon: Icon, label, color }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-2 bg-surface border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm"
-                >
-                  <Icon className={`w-4 h-4 ${color}`} />
-                  {label}
+                { icon: Footprints, label: t("badge1"), desc: "Adım, kalori, egzersiz takibi" },
+                { icon: Heart, label: t("badge2"), desc: "7/24 gerçek zamanlı izleme" },
+                { icon: Moon, label: t("badge3"), desc: "Uyku kalitesi ve REM analizi" },
+              ].map(({ icon: Icon, label, desc }, i) => (
+                <div key={label} className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-accent-soft border border-accent/20 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4.5 h-4.5 text-accent" style={{ width: 18, height: 18 }} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-text">{label}</p>
+                    <p className="text-xs text-muted">{desc}</p>
+                  </div>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right — decorative health dashboard */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative bg-surface rounded-3xl border border-border p-6 shadow-2xl">
-              {/* Band image placeholder */}
-              <div className="bg-accent-soft rounded-2xl h-64 flex items-center justify-center mb-6">
-                <div className="text-center">
-                  <div className="w-20 h-40 mx-auto bg-accent rounded-2xl flex items-center justify-center shadow-lg shadow-accent/30">
-                    <Activity className="w-10 h-10 text-white" />
-                  </div>
-                  <p className="text-muted text-sm mt-3 font-medium">Next Health Band</p>
-                </div>
-              </div>
-
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { label: "Adım", value: "8,420" },
-                  { label: "Kalori", value: "342" },
-                  { label: "Nabız", value: "72 bpm" },
-                ].map((stat) => (
-                  <div key={stat.label} className="bg-bg rounded-xl p-3 text-center">
-                    <p className="font-bold text-lg text-text">{stat.value}</p>
-                    <p className="text-xs text-muted mt-0.5">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Floating card */}
+          {/* ── RIGHT IMAGE COLUMN ── */}
+          <div className="relative flex items-center justify-center lg:min-h-screen">
+            {/* Person / image placeholder */}
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 bg-surface border border-border rounded-2xl p-4 shadow-xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="relative w-full max-w-md lg:max-w-none lg:w-auto lg:absolute lg:inset-0"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-green-100 dark:bg-accent-soft flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted">Kalp Atışı</p>
-                  <p className="font-bold text-sm">72 bpm</p>
-                </div>
+              {/* Gradient image placeholder — replace with <Image src="/images/hero-person.jpg" ... /> */}
+              <div className="relative w-full lg:w-[90%] mx-auto lg:h-full min-h-[480px] lg:min-h-[90vh] lg:mt-10 rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/vitrus_hero.png"
+                  alt="Healthy User Tracking"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
             </motion.div>
 
+            {/* Floating card — top right (Food / Calorie) */}
             <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -left-4 bg-surface border border-border rounded-2xl p-4 shadow-xl"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-accent-soft flex items-center justify-center">
-                  <Moon className="w-5 h-5 text-indigo-500" />
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-16 right-0 lg:-right-8 bg-yellow-400 rounded-2xl p-4 shadow-xl z-20 w-52"
+              >
+                <p className="text-xs font-bold text-yellow-900 mb-1">Günlük Kalori</p>
+                <p className="text-2xl font-bold text-yellow-900">1.842 <span className="text-sm font-normal">kcal</span></p>
+                <div className="mt-2 h-1.5 bg-yellow-200 rounded-full">
+                  <div className="h-full bg-yellow-700 rounded-full" style={{ width: "72%" }} />
                 </div>
-                <div>
-                  <p className="text-xs text-muted">Uyku Kalitesi</p>
-                  <p className="font-bold text-sm">%92 İyi</p>
-                </div>
-              </div>
+                <p className="text-xs text-yellow-800 mt-1">Günlük hedefinizin %72'si</p>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Floating card — bottom left (Kalp Atışı) */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 }}
+            >
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-24 left-0 lg:-left-8 bg-surface border border-border rounded-2xl p-4 shadow-xl z-20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-rose-500" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted">Kalp Atışı</p>
+                    <p className="font-bold text-lg">72 <span className="text-sm font-normal text-muted">bpm</span></p>
+                  </div>
+                </div>
+                <div className="flex gap-0.5 mt-2">
+                  {[3, 5, 8, 6, 4, 7, 5, 8, 6, 4].map((h, i) => (
+                    <div key={i} className="flex-1 rounded-sm bg-rose-400" style={{ height: h * 2 }} />
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Floating card — middle right (Adım) */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute top-1/2 -translate-y-1/2 right-0 lg:-right-6 bg-surface border border-border rounded-2xl p-4 shadow-xl z-20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-accent-soft flex items-center justify-center">
+                    <Flame className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted">Adım</p>
+                    <p className="font-bold text-lg">8.420</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
+
+      {/* Subtle background element */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-soft/30 -z-10 hidden lg:block" />
     </section>
   );
 }
