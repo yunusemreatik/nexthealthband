@@ -1,0 +1,121 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "product": "Ürünümüz",
+    "app": "Uygulama",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "getStarted": "Hemen Başla"
+  },
+  "hero": {
+    "badge": "Yeni Nesil Sağlık Takibi",
+    "titleMain": "Sağlığınızı Takip Edin",
+    "titleSub": "Her An, Her Yerde",
+    "subtitle": "Next Health Band ile sağlık verilerinizi gerçek zamanlı izleyin ve Next Plus Health uygulamasıyla senkronize edin.",
+    "ctaPrimary": "Hemen Başla",
+    "ctaSecondary": "Daha Fazla Bilgi",
+    "badge1": "Fitness Takibi",
+    "badge2": "Kalp Atışı",
+    "badge3": "Uyku Analizi"
+  },
+  "features": {
+    "title": "Tüm Sağlık Verileriniz",
+    "subtitle": "Tek Bilekte",
+    "description": "Next Health Band, günlük sağlık metriklerinizi hassas sensörlerle ölçer ve Next Plus Health uygulamasına aktarır.",
+    "fitness": "Fitness",
+    "fitnessDesc": "Adım, kalori ve günlük egzersizleri takip eder.",
+    "heart": "Kalp",
+    "heartDesc": "Kalp atış hızını 7/24 gerçek zamanlı izler.",
+    "sleep": "Uyku",
+    "sleepDesc": "Uyku kalitesini ve REM sürelerini analiz eder.",
+    "display": "Ekran",
+    "displayDesc": "Büyük AMOLED ekran, canlı renk kalitesiyle."
+  },
+  "stats": {
+    "title": "Haftalık Özet",
+    "distance": "km",
+    "time": "sa",
+    "rested": "Bu ay dinlendiniz"
+  },
+  "appIntegration": {
+    "badge": "Mobil Uygulama",
+    "title": "Next Plus Health ile",
+    "titleSub": "Kesintisiz Çalışır",
+    "description": "Next Health Band'dan gelen tüm veriler, Next Plus Health mobil uygulamasıyla senkronize olur. Sağlık uzmanlarınıza anlık erişim, kişiselleştirilmiş öneriler ve daha fazlası.",
+    "feature1": "Gerçek Zamanlı Senkronizasyon",
+    "feature1Desc": "Band verileri anında uygulamaya aktarılır.",
+    "feature2": "7/24 Uzman Erişimi",
+    "feature2Desc": "Next Plus Health uzmanlarına direkt bağlanın.",
+    "feature3": "Kişisel Sağlık Hedefleri",
+    "feature3Desc": "Verilerinize göre özelleştirilmiş hedefler.",
+    "cta": "Uygulamayı İncele",
+    "appStore": "App Store'dan İndir",
+    "googlePlay": "Google Play'den İndir"
+  },
+  "statsCounter": {
+    "users": "Aktif Kullanıcı",
+    "metrics": "Sağlık Metriği",
+    "uptime": "Kesintisiz Takip",
+    "accuracy": "Hassasiyet"
+  },
+  "whyBand": {
+    "title": "Neden Next Health Band?",
+    "subtitle": "Sağlığınızı ciddiye almak için tasarlandı",
+    "realtime": "Gerçek Zamanlı Takip",
+    "realtimeDesc": "Tüm sağlık metriklerinizi anlık olarak görün.",
+    "sync": "Kolay Senkronizasyon",
+    "syncDesc": "Next Plus Health ile tek dokunuşta bağlanın.",
+    "battery": "Uzun Pil Ömrü",
+    "batteryDesc": "14 güne kadar pil ömrüyle kesintisiz kullanım.",
+    "waterproof": "Su Geçirmez",
+    "waterproofDesc": "5ATM su direnci ile yüzerken bile takın."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Sağlık ve teknoloji hakkında güncel yazılar",
+    "readMore": "Devamını Oku",
+    "allPosts": "Tüm Yazılar"
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "Merak ettiklerinizi yanıtlıyoruz"
+  },
+  "contact": {
+    "title": "Daha Fazla Bilgi Alın",
+    "subtitle": "Sorularınız için bize ulaşın",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "message": "Mesajınız",
+    "submit": "Gönder",
+    "success": "Mesajınız iletildi, en kısa sürede dönüş yapacağız.",
+    "error": "Bir hata oluştu, lütfen tekrar deneyin."
+  },
+  "footer": {
+    "description": "Next Health Band, sağlık verilerinizi izleyen ve Next Plus Health uygulamasıyla senkronize eden akıllı sağlık bandıdır.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "parentCompany": "Next Plus Health",
+    "allRights": "Tüm hakları saklıdır."
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Next Health Band Ailesi",
+    "description": "Next Health Band, Next Plus Health ailesinin bir parçasıdır. Sağlık teknolojisinde öncü çözümler sunmak için yola çıktık.",
+    "mission": "Misyonumuz",
+    "missionDesc": "Herkesin sağlık verilerine kolayca erişebileceği, anlayabileceği ve yönetebileceği bir dünya inşa etmek.",
+    "vision": "Vizyonumuz",
+    "visionDesc": "Sağlık takibini herkes için erişilebilir ve anlamlı kılmak."
+  },
+  "product": {
+    "title": "Next Health Band",
+    "subtitle": "Teknik Özellikler",
+    "specs": "Özellikler",
+    "preorder": "Ön Sipariş Ver",
+    "learnMore": "Daha Fazla Bilgi"
+  }
+}

@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-green: var(--accent-green);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
+
+  --font-display: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg: #F7FAF7;
+    --surface: #FFFFFF;
+    --border: #E0EAE0;
+    --accent: #2D7A4F;
+    --accent-soft: #EAF4EE;
+    --accent-green: #1F5C3A;
+    --text: #1A2B1A;
+    --muted: #6B7D6B;
+    --peach: #F8A66E;
+    --lavender: #E8F0FE;
+    color-scheme: light;
+  }
+
+  [data-theme='dark'] {
+    --bg: #151F15;
+    --surface: #1E2B1E;
+    --border: #2D3F2D;
+    --accent: #3D9E68;
+    --accent-soft: #1A2E20;
+    --accent-green: #2D7A4F;
+    --text: #E8EDE8;
+    --muted: #8FA58F;
+    --peach: #E8956A;
+    --lavender: #2A3348;
+    color-scheme: dark;
+  }
+
+  html {
+    transition: background-color 400ms ease, color 400ms ease;
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: var(--accent);
+    color: #fff;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a, button {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+  }
+}

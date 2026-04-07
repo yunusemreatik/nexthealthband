@@ -1,0 +1,121 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "Our Product",
+    "app": "App",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Next-Gen Health Tracking",
+    "titleMain": "Track Your Health",
+    "titleSub": "Anytime, Anywhere",
+    "subtitle": "Monitor your health data in real-time with Next Health Band and sync with the Next Plus Health app.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Learn More",
+    "badge1": "Fitness Tracking",
+    "badge2": "Heart Rate",
+    "badge3": "Sleep Analysis"
+  },
+  "features": {
+    "title": "All Your Health Data",
+    "subtitle": "On Your Wrist",
+    "description": "Next Health Band measures your daily health metrics with precision sensors and transfers them to the Next Plus Health app.",
+    "fitness": "Fitness",
+    "fitnessDesc": "Tracks steps, calories, and daily workouts.",
+    "heart": "Heart",
+    "heartDesc": "Monitors heart rate 24/7 in real-time.",
+    "sleep": "Sleep",
+    "sleepDesc": "Analyzes sleep quality and REM cycles.",
+    "display": "Display",
+    "displayDesc": "Large AMOLED screen with vibrant colors."
+  },
+  "stats": {
+    "title": "Weekly Summary",
+    "distance": "km",
+    "time": "hrs",
+    "rested": "You've rested this month"
+  },
+  "appIntegration": {
+    "badge": "Mobile App",
+    "title": "Works Seamlessly with",
+    "titleSub": "Next Plus Health",
+    "description": "All data from Next Health Band syncs with the Next Plus Health mobile app. Instant access to health experts, personalized recommendations and more.",
+    "feature1": "Real-Time Sync",
+    "feature1Desc": "Band data is instantly transferred to the app.",
+    "feature2": "24/7 Expert Access",
+    "feature2Desc": "Connect directly with Next Plus Health experts.",
+    "feature3": "Personal Health Goals",
+    "feature3Desc": "Customized goals based on your data.",
+    "cta": "Explore App",
+    "appStore": "Download on App Store",
+    "googlePlay": "Get on Google Play"
+  },
+  "statsCounter": {
+    "users": "Active Users",
+    "metrics": "Health Metrics",
+    "uptime": "Always-On Tracking",
+    "accuracy": "Accuracy"
+  },
+  "whyBand": {
+    "title": "Why Next Health Band?",
+    "subtitle": "Designed to take your health seriously",
+    "realtime": "Real-Time Tracking",
+    "realtimeDesc": "View all your health metrics instantly.",
+    "sync": "Easy Sync",
+    "syncDesc": "Connect to Next Plus Health with one tap.",
+    "battery": "Long Battery Life",
+    "batteryDesc": "Up to 14 days of continuous use.",
+    "waterproof": "Waterproof",
+    "waterproofDesc": "5ATM water resistance, wear it while swimming."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest articles on health and technology",
+    "readMore": "Read More",
+    "allPosts": "All Posts"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "We answer what you're wondering"
+  },
+  "contact": {
+    "title": "Get More Information",
+    "subtitle": "Contact us with your questions",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your Message",
+    "submit": "Send",
+    "success": "Your message has been received, we'll get back to you shortly.",
+    "error": "An error occurred, please try again."
+  },
+  "footer": {
+    "description": "Next Health Band is a smart health band that monitors your health data and syncs with the Next Plus Health app.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "parentCompany": "Next Plus Health",
+    "allRights": "All rights reserved."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "The Next Health Band Family",
+    "description": "Next Health Band is part of the Next Plus Health family. We set out to provide pioneering solutions in health technology.",
+    "mission": "Our Mission",
+    "missionDesc": "Building a world where everyone can easily access, understand, and manage their health data.",
+    "vision": "Our Vision",
+    "visionDesc": "Making health tracking accessible and meaningful for everyone."
+  },
+  "product": {
+    "title": "Next Health Band",
+    "subtitle": "Technical Specifications",
+    "specs": "Specifications",
+    "preorder": "Pre-Order",
+    "learnMore": "Learn More"
+  }
+}
