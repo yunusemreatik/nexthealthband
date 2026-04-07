@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ArrowRight, Calendar } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
 import { supabase } from "@/lib/supabaseClient";
@@ -26,7 +26,7 @@ async function getPosts(): Promise<BlogPost[]> {
 
 export default async function BlogPreview() {
   const posts = await getPosts();
-  const t = useTranslations("blog");
+  const t = await getTranslations("blog");
 
   if (posts.length === 0) return null;
 
