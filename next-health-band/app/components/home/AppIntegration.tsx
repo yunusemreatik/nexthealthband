@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Check, ExternalLink } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
 import StoreButtons from "../shared/StoreButtons";
 
 export default function AppIntegration() {
   const t = useTranslations("appIntegration");
+  const locale = useLocale();
 
   const features = [
     { title: t("feature1"), desc: t("feature1Desc") },
@@ -66,7 +67,7 @@ export default function AppIntegration() {
             <FadeIn delay={0.35} className="mt-10 space-y-4">
               <StoreButtons />
               <Link
-                href="https://nextplushealth.vercel.app/tr"
+                href={`https://nextplushealth.vercel.app/${locale}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline"

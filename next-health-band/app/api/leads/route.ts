@@ -10,7 +10,18 @@ const schema = z.object({
   source: z.string().max(50).optional(),
 });
 
+const rateLimit = new Map<string, number>();
+
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const now = Date.now();
+  const lastCall = rateLimit.get(ip) || 0;
+  
+  if (now - lastCall < 60_000) {
+    return NextResponse.json({ error: "Lütfen mesaj göndermeden önce 1 dakika bekleyin." }, { status: 429 });
+  }
+  rateLimit.set(ip, now);
+
   const body = await request.json();
   const parsed = schema.safeParse(body);
   if (!parsed.success) {

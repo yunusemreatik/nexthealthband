@@ -5,7 +5,16 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { Activity, Heart, Moon, ArrowRight, Footprints, Flame, Zap } from "lucide-react";
 
-export default function Hero() {
+interface HeroData {
+  badge_text?: string;
+  title_main?: string;
+  title_sub?: string;
+  subtitle?: string;
+  cta_primary?: string;
+  cta_secondary?: string;
+}
+
+export default function Hero({ data }: { data?: HeroData }) {
   const t = useTranslations("hero");
   const locale = useLocale();
 
@@ -24,7 +33,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 bg-accent-soft text-accent rounded-full px-4 py-1.5 text-sm font-semibold mb-7 w-fit"
             >
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              {t("badge")}
+              {data?.badge_text || t("badge")}
             </motion.div>
 
             <motion.h1
@@ -33,9 +42,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight"
             >
-              {t("titleMain")}
+              {data?.title_main || t("titleMain")}
               <br />
-              <span className="text-accent">{t("titleSub")}</span>
+              <span className="text-accent">{data?.title_sub || t("titleSub")}</span>
             </motion.h1>
 
             <motion.p
@@ -44,7 +53,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-muted text-lg mt-6 max-w-md leading-relaxed"
             >
-              {t("subtitle")}
+              {data?.subtitle || t("subtitle")}
             </motion.p>
 
             <motion.div
@@ -57,7 +66,7 @@ export default function Hero() {
                 href={`/${locale}/iletisim`}
                 className="inline-flex items-center gap-2.5 bg-accent text-white rounded-full px-8 py-4 font-bold text-base hover:bg-accent-green transition-colors shadow-lg shadow-accent/25"
               >
-                {t("ctaPrimary")} <ArrowRight className="w-4 h-4" />
+                {data?.cta_primary || t("ctaPrimary")} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
 

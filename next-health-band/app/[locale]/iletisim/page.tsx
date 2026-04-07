@@ -5,10 +5,15 @@ import FadeIn from "@/app/components/shared/FadeIn";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 
-export const metadata: Metadata = {
-  title: "İletişim — Next Health Band",
-  description: "Next Health Band ile iletişime geçin.",
-};
+import { getSeoMetadata } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await getSeoMetadata(
+    "contact",
+    "İletişim — Next Health Band",
+    "Next Health Band ile iletişime geçin."
+  );
+}
 
 export const revalidate = 60;
 

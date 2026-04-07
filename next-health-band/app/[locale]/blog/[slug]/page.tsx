@@ -5,6 +5,8 @@ import FadeIn from "@/app/components/shared/FadeIn";
 import { supabase } from "@/lib/supabaseClient";
 import { Calendar, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
+import sanitizeHtml from "sanitize-html";
 
 export const revalidate = 60;
 
@@ -25,7 +27,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Bulunamadı" };
+  if (!post) return { title: "Not Found" };
   return { title: `${post.title} — Blog`, description: post.excerpt };
 }
 
@@ -35,16 +37,29 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const [post, locale] = await Promise.all([
+    getPost(slug),
+    getLocale()
+  ]);
+
   if (!post) notFound();
+
+  const cleanHtml = sanitizeHtml(post.content, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img', 'h1', 'h2', 'iframe' ]),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      'img': ['src', 'alt', 'class'],
+      'iframe': ['src', 'width', 'height', 'allowfullscreen']
+    }
+  });
 
   return (
     <ClientLayoutWrapper>
       <article className="py-24 bg-bg">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <Link href="/tr/blog" className="inline-flex items-center gap-2 text-muted hover:text-accent text-sm mb-8 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Blog&apos;a Dön
+            <Link href={`/${locale}/blog`} className="inline-flex items-center gap-2 text-muted hover:text-accent text-sm mb-8 transition-colors">
+              <ArrowLeft className="w-4 h-4" /> &larr; Geri
             </Link>
 
             {post.cover_image && (
@@ -58,7 +73,7 @@ export default async function BlogPostPage({
             <p className="text-xs text-muted flex items-center gap-1.5 mb-4">
               <Calendar className="w-3.5 h-3.5" />
               {post.published_at
-                ? new Date(post.published_at).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })
+                ? new Date(post.published_at).toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", { day: "numeric", month: "long", year: "numeric" })
                 : "—"}{" "}
               · {post.author}
             </p>
@@ -68,7 +83,7 @@ export default async function BlogPostPage({
 
             <div
               className="prose prose-sm md:prose max-w-none text-text leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: cleanHtml }}
             />
           </FadeIn>
         </div>

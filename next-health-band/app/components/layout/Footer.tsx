@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const navT = useTranslations("nav");
   const locale = useLocale();
 
   return (
@@ -23,7 +24,7 @@ export default function Footer() {
             <p className="text-xs text-muted mt-4">
               Part of{" "}
               <Link
-                href="https://nextplushealth.vercel.app/tr"
+                href={`https://nextplushealth.vercel.app/${locale}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent hover:underline font-medium"
@@ -47,11 +48,11 @@ export default function Footer() {
           <div>
             <h3 className="font-display font-bold text-sm mb-4">{t("company")}</h3>
             <ul className="space-y-2 text-sm text-muted">
-              <li><Link href={`/${locale}/hakkimizda`} className="hover:text-accent transition-colors">Hakkımızda</Link></li>
-              <li><Link href={`/${locale}/iletisim`} className="hover:text-accent transition-colors">İletişim</Link></li>
+              <li><Link href={`/${locale}/hakkimizda`} className="hover:text-accent transition-colors">{navT("about")}</Link></li>
+              <li><Link href={`/${locale}/iletisim`} className="hover:text-accent transition-colors">{navT("contact")}</Link></li>
               <li>
                 <Link
-                  href="https://nextplushealth.vercel.app/tr"
+                  href={`https://nextplushealth.vercel.app/${locale}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"
@@ -66,8 +67,8 @@ export default function Footer() {
         <div className="border-t border-border mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
           <p>© {new Date().getFullYear()} Next Health Band. {t("allRights")}</p>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-accent transition-colors">{t("privacy")}</Link>
-            <Link href="#" className="hover:text-accent transition-colors">{t("terms")}</Link>
+            <Link href={`/${locale}/iletisim`} className="hover:text-accent transition-colors">{t("privacy")}</Link>
+            <Link href={`/${locale}/iletisim`} className="hover:text-accent transition-colors">{t("terms")}</Link>
           </div>
         </div>
       </div>

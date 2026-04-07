@@ -5,10 +5,15 @@ import StoreButtons from "@/app/components/shared/StoreButtons";
 import FadeIn from "@/app/components/shared/FadeIn";
 import { ExternalLink, Zap, Users, Shield, Target, BarChart3, Bell } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Uygulama — Next Health Band",
-  description: "Next Plus Health mobil uygulaması ile Next Health Band'ı senkronize edin.",
-};
+import { getSeoMetadata } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await getSeoMetadata(
+    "app",
+    "Uygulama — Next Health Band",
+    "Next Plus Health mobil uygulaması ile Next Health Band'ı senkronize edin."
+  );
+}
 
 const appFeatures = [
   { icon: Zap, title: "Gerçek Zamanlı Sync", desc: "Band verileriniz anında uygulamaya aktarılır." },

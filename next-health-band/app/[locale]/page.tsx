@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabaseClient";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import ClientLayoutWrapper from "@/app/components/layout/ClientLayoutWrapper";
 import Hero from "@/app/components/home/Hero";
 import BandShowcase from "@/app/components/home/BandShowcase";
@@ -21,12 +22,17 @@ async function getFAQs() {
   return data ?? [];
 }
 
+async function getHeroData() {
+  const { data } = await supabaseAdmin.from("hero_sections").select("*").eq("id", 1).single();
+  return data;
+}
+
 export default async function HomePage() {
-  const faqs = await getFAQs();
+  const [faqs, heroData] = await Promise.all([getFAQs(), getHeroData()]);
 
   return (
     <ClientLayoutWrapper>
-      <Hero />
+      <Hero data={heroData} />
       <BandShowcase />
       <HealthStats />
       <AppIntegration />

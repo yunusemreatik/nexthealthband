@@ -19,13 +19,17 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Next Health Band",
-    template: "%s | Next Health Band",
-  },
-  description: "Sağlık verilerinizi gerçek zamanlı izleyin ve Next Plus Health uygulamasıyla senkronize edin.",
-};
+import { getSeoMetadata } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const metadata = await getSeoMetadata("home", "Next Health Band", "Sağlık verilerinizi gerçek zamanlı izleyin ve Next Plus Health uygulamasıyla senkronize edin.");
+  return Object.assign({}, metadata, {
+    title: {
+      default: metadata.title || "Next Health Band",
+      template: "%s | Next Health Band",
+    }
+  });
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

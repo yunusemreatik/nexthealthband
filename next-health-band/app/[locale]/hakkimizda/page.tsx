@@ -4,10 +4,15 @@ import ClientLayoutWrapper from "@/app/components/layout/ClientLayoutWrapper";
 import FadeIn from "@/app/components/shared/FadeIn";
 import { Target, Eye, ExternalLink } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Hakkımızda — Next Health Band",
-  description: "Next Health Band ve Next Plus Health ailesi hakkında bilgi edinin.",
-};
+import { getSeoMetadata } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await getSeoMetadata(
+    "about",
+    "Hakkımızda — Next Health Band",
+    "Next Health Band ve Next Plus Health ailesi hakkında bilgi edinin."
+  );
+}
 
 export default function HakkimizdaPage() {
   return (

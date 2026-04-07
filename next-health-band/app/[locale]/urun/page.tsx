@@ -4,11 +4,17 @@ import { supabase } from "@/lib/supabaseClient";
 import { Check, Activity, Heart, Moon, Monitor, Waves, Battery, Bluetooth, Watch } from "lucide-react";
 import FadeIn from "@/app/components/shared/FadeIn";
 import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Ürün — Next Health Band",
-  description: "Next Health Band teknik özellikleri ve detaylı ürün bilgisi.",
-};
+import { getSeoMetadata } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await getSeoMetadata(
+    "product",
+    "Ürün — Next Health Band",
+    "Next Health Band teknik özellikleri ve detaylı ürün bilgisi."
+  );
+}
 
 export const revalidate = 60;
 
@@ -32,6 +38,12 @@ const features = [
 ];
 
 export default async function UrunPage() {
+  const [locale, t, featuresT] = await Promise.all([
+    getLocale(),
+    getTranslations("product"),
+    getTranslations("features")
+  ]);
+
   return (
     <ClientLayoutWrapper>
       {/* Hero */}
@@ -41,13 +53,13 @@ export default async function UrunPage() {
             <div>
               <FadeIn>
                 <span className="inline-flex items-center gap-2 bg-accent-soft text-accent rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-                  Yeni Nesil Sağlık Bandı
+                  {t("subtitle")}
                 </span>
                 <h1 className="font-display text-5xl md:text-6xl font-bold leading-tight">
-                  Next Health Band
+                  {t("title")}
                 </h1>
                 <p className="text-muted mt-5 text-lg leading-relaxed">
-                  Sağlık verilerinizi hassas sensörlerle ölçen, Next Plus Health uygulamasıyla senkronize olan akıllı sağlık bandı.
+                  {featuresT("description")}
                 </p>
                 <div className="grid grid-cols-2 gap-3 mt-8">
                   {features.map(({ icon: Icon, label }) => (
@@ -59,16 +71,16 @@ export default async function UrunPage() {
                 </div>
                 <div className="flex gap-4 mt-10">
                   <Link
-                    href="/tr/iletisim"
+                    href={`/${locale}/iletisim`}
                     className="inline-flex items-center gap-2 bg-accent text-white rounded-full px-7 py-3.5 font-bold hover:bg-accent-green transition-colors"
                   >
-                    Ön Sipariş Ver
+                    {t("preorder")}
                   </Link>
                   <Link
-                    href="/tr/uygulama"
+                    href={`/${locale}/uygulama`}
                     className="inline-flex items-center gap-2 border border-border rounded-full px-7 py-3.5 font-semibold hover:bg-accent-soft transition-colors"
                   >
-                    Uygulamayı Gör
+                    {t("learnMore")}
                   </Link>
                 </div>
               </FadeIn>
@@ -92,7 +104,7 @@ export default async function UrunPage() {
       <section className="py-24 bg-surface border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold">Teknik Özellikler</h2>
+            <h2 className="font-display text-4xl font-bold">{t("specs")}</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {defaultSpecs.map((group, i) => (

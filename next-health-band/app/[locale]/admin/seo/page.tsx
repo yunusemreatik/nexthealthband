@@ -31,11 +31,20 @@ export default function AdminSeoPage() {
 
   async function save() {
     setStatus("loading");
-    await fetch("/api/admin/seo", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
-    const r = await fetch("/api/admin/seo");
-    setMetas(await r.json());
-    setStatus("saved");
-    setTimeout(() => setStatus("idle"), 2000);
+    try {
+      const res = await fetch("/api/admin/seo", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+      if (!res.ok) throw new Error("Ağ hatası veya sunucu hatası");
+      
+      const r = await fetch("/api/admin/seo");
+      if (!r.ok) throw new Error("Veriler güncellenirken hata oluştu");
+      setMetas(await r.json());
+      setStatus("saved");
+      setTimeout(() => setStatus("idle"), 2000);
+    } catch (error) {
+      console.error(error);
+      alert("Hata: Değişiklikler kaydedilemedi!");
+      setStatus("idle");
+    }
   }
 
   return (

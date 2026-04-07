@@ -24,13 +24,21 @@ export default function AdminIcerikPage() {
 
   async function save() {
     setStatus("loading");
-    await fetch("/api/admin/hero", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    setStatus("saved");
-    setTimeout(() => setStatus("idle"), 2000);
+    try {
+      const res = await fetch("/api/admin/hero", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Kayıt sırasında bir problem oluştu");
+      
+      setStatus("saved");
+      setTimeout(() => setStatus("idle"), 2000);
+    } catch (error) {
+      console.error(error);
+      alert("Hata: Kaydedilemedi!");
+      setStatus("idle");
+    }
   }
 
   const fields: { key: keyof Hero; label: string }[] = [

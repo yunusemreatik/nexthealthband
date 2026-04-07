@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   LayoutDashboard, FileText, HelpCircle, Users, Settings,
-  Mail, Search, LogOut, Activity, MessageSquare, ChevronRight
+  Mail, Search, LogOut, Activity, MessageSquare, ChevronRight, Menu, X
 } from "lucide-react";
 
 const navItems = [
@@ -27,6 +27,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const locale = useLocale();
   const [email, setEmail] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isLoginPage = pathname.endsWith("/admin/login");
 
@@ -59,9 +60,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="flex min-h-screen bg-bg">
+    <div className="flex min-h-screen bg-bg md:pt-0 pt-16">
+      {/* Mobile Topbar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-surface border-b border-border flex items-center justify-between px-4 z-50">
+        <Image src="/logo/Next_Plus_Logo_Full.png" alt="NHB" width={100} height={25} className="h-6 w-auto" />
+        <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
+          {menuOpen ? <X className="w-6 h-6 text-text" /> : <Menu className="w-6 h-6 text-text" />}
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <aside className="w-64 bg-surface border-r border-border flex flex-col">
+      <aside className={`${menuOpen ? "flex fixed inset-y-16 w-full max-w-xs" : "hidden"} md:flex md:relative w-64 bg-surface border-r border-border flex-col z-40 h-[calc(100vh-4rem)] md:h-screen transition-all`}>
         <div className="p-6 border-b border-border">
           <Image src="/logo/Next_Plus_Logo_Full.png" alt="NHB" width={120} height={30} className="h-7 w-auto" />
           <p className="text-xs text-muted mt-2">Admin Panel</p>
@@ -75,6 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={href}
                 href={fullHref}
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   active ? "bg-accent text-white" : "text-muted hover:bg-accent-soft hover:text-text"
                 }`}
