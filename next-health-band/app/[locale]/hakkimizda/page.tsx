@@ -28,6 +28,17 @@ export default function HakkimizdaPage() {
             </p>
           </FadeIn>
         </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+          <FadeIn>
+            <div className="relative w-full h-[300px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-border">
+              <img
+                src="/images/hakkimizda.png"
+                alt="Next Health Band Team"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* Story */}

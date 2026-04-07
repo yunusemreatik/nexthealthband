@@ -76,24 +76,12 @@ export default async function UrunPage() {
 
             {/* Band visual */}
             <FadeIn direction="right">
-              <div className="bg-accent-soft rounded-3xl p-12 flex items-center justify-center min-h-80">
-                <div className="relative">
-                  <div className="w-36 h-60 bg-accent rounded-3xl shadow-2xl shadow-accent/40 flex flex-col items-center justify-center gap-4">
-                    <div className="w-24 h-32 bg-surface/20 rounded-2xl flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <p className="text-2xl font-bold">72</p>
-                        <p className="text-xs opacity-80">bpm</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-1.5">
-                      {[1, 2, 3, 4, 5, 6].map((i) => (
-                        <div key={i} className={`w-1.5 rounded-full bg-white ${i === 3 || i === 4 ? "h-6" : "h-3"} opacity-80`} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-10 h-12 bg-accent/60 rounded-t-xl" />
-                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-10 h-12 bg-accent/60 rounded-b-xl" />
-                </div>
+              <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-border">
+                <img
+                  src="/images/urun.png"
+                  alt="Next Health Band"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
             </FadeIn>
           </div>

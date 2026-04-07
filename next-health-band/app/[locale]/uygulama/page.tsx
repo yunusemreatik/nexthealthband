@@ -51,24 +51,18 @@ export default function UygulamaPage() {
         </div>
       </section>
 
-      {/* App showcase */}
+      {/* App showcase image */}
       <section className="py-16 bg-surface border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center gap-6 overflow-x-auto pb-4">
-            {["Ana Sayfa", "Sağlık", "Uzman", "Profil"].map((screen, i) => (
-              <div key={screen} className="flex-shrink-0 w-44 h-80 bg-accent rounded-[2rem] border-4 border-surface shadow-xl flex flex-col overflow-hidden">
-                <div className="bg-accent-green p-3 text-white text-center">
-                  <p className="text-xs font-bold">Next Plus Health</p>
-                </div>
-                <div className="flex-1 bg-bg p-3 space-y-2">
-                  <p className="text-xs text-muted font-medium">{screen}</p>
-                  {[1, 2, 3].map((j) => (
-                    <div key={j} className="bg-surface rounded-lg p-2 h-10 animate-pulse opacity-60" />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="relative w-full h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-border">
+              <img
+                src="/images/uygulama.png"
+                alt="Next Plus Health App Dashboard"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
