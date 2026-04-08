@@ -40,7 +40,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted">
               <li><Link href={`/${locale}/urun`} className="hover:text-accent transition-colors">Next Health Band</Link></li>
               <li><Link href={`/${locale}/uygulama`} className="hover:text-accent transition-colors">Next Plus Health App</Link></li>
-              <li><Link href={`/${locale}/blog`} className="hover:text-accent transition-colors">Blog</Link></li>
             </ul>
           </div>
 

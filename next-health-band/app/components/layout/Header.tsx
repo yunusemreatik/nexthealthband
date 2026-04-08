@@ -32,7 +32,6 @@ export default function Header() {
     { href: `/${locale}/urun`, label: t("product") },
     { href: `/${locale}/uygulama`, label: t("app") },
     { href: `/${locale}/hakkimizda`, label: t("about") },
-    { href: `/${locale}/blog`, label: t("blog") },
     { href: `/${locale}/iletisim`, label: t("contact") },
   ];
 

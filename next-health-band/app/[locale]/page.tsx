@@ -7,7 +7,6 @@ import HealthStats from "@/app/components/home/HealthStats";
 import AppIntegration from "@/app/components/home/AppIntegration";
 import StatsCounter from "@/app/components/home/StatsCounter";
 import WhyBand from "@/app/components/home/WhyBand";
-import BlogPreview from "@/app/components/home/BlogPreview";
 import FAQSection from "@/app/components/home/FAQSection";
 import ContactCTA from "@/app/components/home/ContactCTA";
 
@@ -38,7 +37,6 @@ export default async function HomePage() {
       <AppIntegration />
       <StatsCounter />
       <WhyBand />
-      <BlogPreview />
       <FAQSection faqs={faqs} />
       <ContactCTA />
     </ClientLayoutWrapper>
