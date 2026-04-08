@@ -60,11 +60,11 @@ export default function UygulamaPage() {
       <section className="py-16 bg-surface border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="relative w-full h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-border">
+            <div className="flex justify-center w-full rounded-3xl overflow-hidden">
               <img
                 src="/images/uygulama.png"
                 alt="Next Plus Health App Dashboard"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="w-full max-w-sm md:max-w-md h-auto object-contain drop-shadow-2xl"
               />
             </div>
           </FadeIn>
