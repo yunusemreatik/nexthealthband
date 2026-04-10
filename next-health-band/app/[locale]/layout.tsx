@@ -28,6 +28,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: {
       default: metadata.title || "Next Health Band",
       template: "%s | Next Health Band",
+    },
+    icons: {
+      icon: "/favicon.png",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.png",
     }
   });
 }
