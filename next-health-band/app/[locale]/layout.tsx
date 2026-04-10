@@ -30,9 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s | Next Health Band",
     },
     icons: {
-      icon: "/favicon.png",
-      shortcut: "/favicon.ico",
-      apple: "/favicon.png",
+      icon: "/favicon.png?v=1",
+      shortcut: "/favicon.ico?v=1",
+      apple: "/favicon.png?v=1",
     }
   });
 }
