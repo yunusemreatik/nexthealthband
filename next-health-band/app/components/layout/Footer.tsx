@@ -14,11 +14,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Image
-              src="/logo/Next_Plus_Logo_Full.png"
+              src="/logo/Next_Health_Band_Logo.png"
               alt="Next Health Band"
               width={140}
               height={36}
-              className="h-8 w-auto object-contain mb-4"
+              className="h-12 w-auto object-contain mb-4"
             />
             <p className="text-muted text-sm leading-relaxed max-w-sm">{t("description")}</p>
             <p className="text-xs text-muted mt-4">

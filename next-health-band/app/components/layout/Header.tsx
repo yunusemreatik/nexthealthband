@@ -52,11 +52,11 @@ export default function Header() {
             {/* Logo */}
             <Link href={`/${locale}`} className="flex items-center gap-2 z-10" onClick={() => setOpen(false)}>
               <Image
-                src="/logo/Next_Plus_Logo_Full.png"
+                src="/logo/Next_Health_Band_Logo.png"
                 alt="Next Health Band"
                 width={200}
                 height={52}
-                className="h-9 md:h-11 w-auto object-contain mix-blend-multiply dark:brightness-0 dark:invert transition-all"
+                className="h-9 md:h-11 w-auto object-contain transition-all"
                 priority
               />
             </Link>

@@ -42,11 +42,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Image
-            src="/logo/Next_Plus_Logo_Full.png"
+            src="/logo/Next_Health_Band_Logo.png"
             alt="Next Health Band"
             width={140}
             height={36}
-            className="h-8 w-auto object-contain mx-auto mb-4"
+            className="h-12 w-auto object-contain mx-auto mb-4"
           />
           <h1 className="font-display text-2xl font-bold">Admin Girişi</h1>
           <p className="text-muted text-sm mt-1">Next Health Band yönetim paneli</p>

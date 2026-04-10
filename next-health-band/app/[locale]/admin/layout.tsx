@@ -63,7 +63,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="flex min-h-screen bg-bg md:pt-0 pt-16">
       {/* Mobile Topbar */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-surface border-b border-border flex items-center justify-between px-4 z-50">
-        <Image src="/logo/Next_Plus_Logo_Full.png" alt="NHB" width={100} height={25} className="h-6 w-auto" />
+        <Image src="/logo/Next_Health_Band_Logo.png" alt="NHB" width={100} height={25} className="h-6 w-auto object-contain" />
         <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
           {menuOpen ? <X className="w-6 h-6 text-text" /> : <Menu className="w-6 h-6 text-text" />}
         </button>
@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className={`${menuOpen ? "flex fixed inset-y-16 w-full max-w-xs" : "hidden"} md:flex md:relative w-64 bg-surface border-r border-border flex-col z-40 h-[calc(100vh-4rem)] md:h-screen transition-all`}>
         <div className="p-6 border-b border-border">
-          <Image src="/logo/Next_Plus_Logo_Full.png" alt="NHB" width={120} height={30} className="h-7 w-auto" />
+          <Image src="/logo/Next_Health_Band_Logo.png" alt="NHB" width={120} height={30} className="h-7 w-auto object-contain" />
           <p className="text-xs text-muted mt-2">Admin Panel</p>
         </div>
 
